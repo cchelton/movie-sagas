@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
-module.exports = router;
-
 router.get("/", (req, res) => {
   let queryText = `SELECT * FROM movies JOIN movie_genres ON movies.id = movie_genres.movie_id JOIN genres ON genres.id = movie_genres.genre_id ORDER BY movie_genres.movie_id ASC;`;
   //  default case for query, no params
@@ -35,3 +33,16 @@ router.get("/", (req, res) => {
       });
   }
 });
+
+router.put("/edit", (req, res) => {
+  //  id is a required query param
+  if (req.query.id) {
+    const title = req.body.title;
+    const description = req.body.description;
+    console.log(title, description);
+    res.sendStatus(200);
+  } else {
+    res.sendStatus(400);
+  }
+});
+module.exports = router;
