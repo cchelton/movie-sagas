@@ -13,6 +13,12 @@ app.use(express.static("build"));
 const movieRouter = require("./routers/movie.router");
 app.use("/api/movies", movieRouter);
 
+const genreRouter = require("./routers/genre.router");
+app.use("/api/genres", genreRouter);
+
+const movieGenresRouter = require("./routers/movieGenres.router");
+app.use("/api/movieGenres", movieGenresRouter);
+
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
   console.log("Listening on port: ", port);
