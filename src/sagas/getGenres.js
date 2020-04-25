@@ -7,7 +7,7 @@ import { put } from "redux-saga/effects";
 function* getGenres() {
   try {
     const response = yield axios.get("/api/movies/");
-    yield put({ type: "SET_GENRES", payload: response });
+    yield put({ type: "SET_GENRES", payload: response.data });
   } catch (err) {
     yield console.warn("err @getGenres*:", err);
   }
