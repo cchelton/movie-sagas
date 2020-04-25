@@ -11,12 +11,18 @@ import logger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
 import { takeEvery } from "redux-saga/effects";
 
-// Make sagas
-
+//  Import sagas
 import getMovies from "./sagas/getMovies";
 import getGenres from "./sagas/getGenres";
 import getMovieGenres from "./sagas/getMovieGenres";
 import getAllMovieGenres from "./sagas/getAllMovieGenres";
+
+//  Import reducers
+
+import movies from "./reducers/movies";
+import genres from "./reducers/genres";
+import movie_genres from "./reducers/movie_genres";
+import selected_movie_genres from "./reducers/movie_genres";
 
 // Create the rootSaga generator function
 function* rootSaga() {
@@ -28,46 +34,6 @@ function* rootSaga() {
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
-
-// Used to store movies returned from the server
-const movies = (state = [], action) => {
-  switch (action.type) {
-    case "SET_MOVIES":
-      return action.payload;
-    default:
-      return state;
-  }
-};
-
-// Used to store the genres
-const genres = (state = [], action) => {
-  switch (action.type) {
-    case "SET_GENRES":
-      return action.payload;
-    default:
-      return state;
-  }
-};
-
-// Used to store all movies and their genres
-const movie_genres = (state = [], action) => {
-  switch (action.type) {
-    case "SET_MOVIE_GENRES":
-      return action.payload;
-    default:
-      return state;
-  }
-};
-
-// Used to store a selected movie's genres
-const selected_movie_genres = (state = [], action) => {
-  switch (action.type) {
-    case "SET_SELECTED_MOVIE":
-      return action.payload;
-    default:
-      return state;
-  }
-};
 
 // Create one store that all components can use
 const storeInstance = createStore(
