@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import GalleryItem from "./GalleryItem/GalleryItem";
+import "./Gallery.css";
 
 class Gallery extends Component {
   componentDidMount() {
@@ -16,7 +17,7 @@ class Gallery extends Component {
     return (
       <div>
         <h4>Gallery</h4>
-        <div>{GalleryItems}</div>
+        <div className="GalleryDiv">{GalleryItems}</div>
       </div>
     );
   }
