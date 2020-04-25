@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
-router.get("/", (req, res) => {
+//  get all movies and their genres
+router.get("/all", (req, res) => {
   let queryText = `SELECT * FROM movies JOIN movie_genres ON movies.id = movie_genres.movie_id JOIN genres ON genres.id = movie_genres.genre_id ORDER BY movie_genres.movie_id ASC;`;
   //  default case for query, no params
 
