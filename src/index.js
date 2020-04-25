@@ -9,52 +9,21 @@ import { Provider } from "react-redux";
 import logger from "redux-logger";
 // Import saga middleware
 import createSagaMiddleware from "redux-saga";
-import { put, takeEvery } from "redux-saga/effects";
-import axios from "axios";
+import { takeEvery } from "redux-saga/effects";
 
 // Make sagas
 
-/**
- * Gets all the movies from the database
- */
-function* getMovies() {
-  try {
-    const response = yield axios.get("/api/movies/");
-    yield put({ type: "SET_MOVIES", payload: response });
-  } catch (err) {
-    yield console.warn("err @getMovies*:", err);
-  }
-}
-
-/**
- * Gets all the genres from the database
- */
-function* getGenres() {
-  try {
-    const response = yield axios.get("/api/movies/");
-    yield put({ type: "SET_GENRES", payload: response });
-  } catch (err) {
-    yield console.warn("err @getGenres*:", err);
-  }
-}
-
-/**
- * Gets all the movies and their genres from database
- */
-function* getAllMovieGenres() {
-  try {
-    const response = yield axios.get("/api/movieGenres/");
-    yield put({ type: "SET_MOVIE_GENRES", payload: response });
-  } catch (err) {
-    yield console.warn("err @getAllMovieGenres*:", err);
-  }
-}
+import getMovies from "./sagas/getMovies";
+import getGenres from "./sagas/getGenres";
+import getMovieGenres from "./sagas/getMovieGenres";
+import getAllMovieGenres from "./sagas/getAllMovieGenres";
 
 // Create the rootSaga generator function
 function* rootSaga() {
-  yield takeEvery("GET_ALL_MOVIE_GENRES", getAllMovieGenres);
   yield takeEvery("GET_MOVIES", getMovies);
   yield takeEvery("GET_GENRES", getGenres);
+  yield takeEvery("GET_MOVIE_GENRES", getMovieGenres);
+  yield takeEvery("GET_ALL_MOVIE_GENRES", getAllMovieGenres);
 }
 
 // Create sagaMiddleware
@@ -70,7 +39,7 @@ const movies = (state = [], action) => {
   }
 };
 
-// Used to store the movie genres
+// Used to store the genres
 const genres = (state = [], action) => {
   switch (action.type) {
     case "SET_GENRES":
@@ -80,10 +49,20 @@ const genres = (state = [], action) => {
   }
 };
 
-// Used to store all the movies and their genres
+// Used to store all movies and their genres
 const movie_genres = (state = [], action) => {
   switch (action.type) {
     case "SET_MOVIE_GENRES":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+// Used to store a selected movie's genres
+const selected_movie_genres = (state = [], action) => {
+  switch (action.type) {
+    case "SET_SELECTED_MOVIE":
       return action.payload;
     default:
       return state;
@@ -96,6 +75,7 @@ const storeInstance = createStore(
     movies,
     genres,
     movie_genres,
+    selected_movie_genres,
   }),
   // Add sagaMiddleware to our store
   applyMiddleware(sagaMiddleware, logger)
