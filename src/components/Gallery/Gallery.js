@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import GalleryItem from "./GalleryItem/GalleryItem";
 import "./Gallery.css";
+import GalleryItem from "./GalleryItem/GalleryItem";
+import { Carousel } from "react-responsive-carousel";
 
 class Gallery extends Component {
   componentDidMount() {
@@ -17,7 +18,7 @@ class Gallery extends Component {
     return (
       <div>
         <h4>Gallery</h4>
-        <div className="GalleryDiv">{GalleryItems}</div>
+        <Carousel>{GalleryItems}</Carousel>
       </div>
     );
   }
