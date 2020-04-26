@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-import ListPage from "../../views/ListPage/ListPage";
+import ListPage from "../../views/ListPage";
+import DetailsPage from "../../views/DetailsPage";
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -13,6 +14,7 @@ class App extends Component {
         </header>
         <Router>
           <Route exact path="/" component={ListPage} />
+          <Route path="/details/:id" component={DetailsPage} />
         </Router>
       </div>
     );
