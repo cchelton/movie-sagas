@@ -16,6 +16,7 @@ import getMovies from "./sagas/getMovies";
 import getGenres from "./sagas/getGenres";
 import getMovieGenres from "./sagas/getMovieGenres";
 import getAllMovieGenres from "./sagas/getAllMovieGenres";
+import editMovie from "./sagas/editMovie";
 
 //  Import reducers
 
@@ -30,6 +31,7 @@ function* rootSaga() {
   yield takeEvery("GET_GENRES", getGenres);
   yield takeEvery("GET_MOVIE_GENRES", getMovieGenres);
   yield takeEvery("GET_ALL_MOVIE_GENRES", getAllMovieGenres);
+  yield takeEvery("EDIT_MOVIE", editMovie);
 }
 
 // Create sagaMiddleware
