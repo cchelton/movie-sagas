@@ -1,4 +1,20 @@
-.GalleryImg {
-  max-height: 277px;
-  max-width: 185px;
+.GalleryItemContainer {
+  display: grid;
+  grid:
+    "img    title" 1fr
+    "img    desc" 1fr
+    "img    desc" 1fr / 185px 1fr;
+}
+
+.GalleryItemImg {
+  grid-area: img;
+}
+
+.GalleryItemTitle {
+  grid-area: title;
+}
+
+.GalleryItemDescription {
+  grid-area: desc;
+  text-align: left;
 }

@@ -1,14 +1,16 @@
 import React from "react";
-import { Card, CardContent, Typography, CardMedia } from "@material-ui/core";
 import "./GalleryItem.css";
 
 function GalleryItem(props) {
   const title = props.item.title;
   const poster = props.item.poster;
+  const description = props.item.description;
+
   return (
-    <div>
-      <img className="GalleryImg" src={poster} alt={title} />
-      <p className="legend">{title}</p>
+    <div className="GalleryItemContainer">
+      <img className="GalleryItemImg" src={poster} alt={title} />
+      <h3 className="GalleryItemTitle">{title}</h3>
+      <p className="GalleryItemDescription">{description}</p>
     </div>
   );
 }
