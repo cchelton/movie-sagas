@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Details from "../components/Details/Details";
 import ToListButton from "../components/ToListButton/ToListButton";
+import CancelEditButton from "../components/CancelEditButton/CancelEditButton";
 
 class EditPage extends Component {
   state = {
     title: "",
     description: "",
   };
+  id = this.props.match.params.id;
 
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -66,6 +68,7 @@ class EditPage extends Component {
           />
           <button type="submit">submit changes</button>
         </form>
+        <CancelEditButton movieID={this.id} />
         <ToListButton />
       </div>
     );
