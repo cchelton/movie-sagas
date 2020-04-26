@@ -15,11 +15,10 @@ class DetailsPage extends Component {
 
   render() {
     const movieID = this.props.match.params.id;
-    const selectedMovie = this.props.store.selected_movie_genres;
     return (
       <div>
         <h2>Movie ID: {movieID}</h2>
-        <Details selectedMovie={selectedMovie} />
+        <Details />
         <ToListButton />
         <EditButton movieID={movieID} />
       </div>

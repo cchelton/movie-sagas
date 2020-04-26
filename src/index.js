@@ -31,6 +31,7 @@ function* rootSaga() {
   yield takeEvery("GET_GENRES", getGenres);
   yield takeEvery("GET_MOVIE_GENRES", getMovieGenres);
   yield takeEvery("GET_ALL_MOVIE_GENRES", getAllMovieGenres);
+  yield takeEvery("EDIT_MOVIE", editMovie);
 }
 
 // Create sagaMiddleware

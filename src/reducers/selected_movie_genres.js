@@ -12,6 +12,11 @@ const selected_movie_genres = (state = initialState, action) => {
   switch (action.type) {
     case "SET_SELECTED_MOVIE":
       return action.payload;
+    case "UPDATE_SELECTED_MOVIE":
+      return {
+        ...state,
+        ...action.payload,
+      };
     default:
       return state;
   }

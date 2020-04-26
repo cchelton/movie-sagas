@@ -8,8 +8,8 @@ import { put } from "redux-saga/effects";
 function* editMovie(action) {
   const movieID = action.payload.id;
   const editObj = action.payload.body;
-  yield axios.put(`/edit/?id=${movieID}`, editObj);
-  yield put({ type: "GET_MOVIES" });
+  yield axios.put(`api/movies/edit/?id=${movieID}`, editObj);
+  yield put({ type: "GET_MOVIE_GENRES", payload: movieID });
 }
 
 export default editMovie;
