@@ -1,7 +1,14 @@
+const initialState = {
+  id: 0,
+  genres: [],
+  title: "",
+  poster: "",
+  description: "",
+};
 /**
  * Used to store a selected movie's genres.
  */
-const selected_movie_genres = (state = [], action) => {
+const selected_movie_genres = (state = initialState, action) => {
   switch (action.type) {
     case "SET_SELECTED_MOVIE":
       return action.payload;

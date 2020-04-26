@@ -22,7 +22,7 @@ import getAllMovieGenres from "./sagas/getAllMovieGenres";
 import movies from "./reducers/movies";
 import genres from "./reducers/genres";
 import movie_genres from "./reducers/movie_genres";
-import selected_movie_genres from "./reducers/movie_genres";
+import selected_movie_genres from "./reducers/selected_movie_genres";
 
 // Create the rootSaga generator function
 function* rootSaga() {
