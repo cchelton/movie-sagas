@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Paper } from "@material-ui/core";
 import "./Gallery.css";
 import GalleryItem from "./GalleryItem/GalleryItem";
 
@@ -16,8 +17,7 @@ class Gallery extends Component {
 
     return (
       <div>
-        <h4>Gallery</h4>
-        <div>{GalleryItems}</div>
+        <Paper className="GalleryContainer">{GalleryItems}</Paper>
       </div>
     );
   }

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Details from "../components/Details/Details";
-import ToListButton from "../components/ToListButton/ToListButton";
-import EditButton from "../components/EditButton/EditButton";
+import "./DetailsPage.css";
+import Details from "../../components/Details/Details";
+import ToListButton from "../../components/ToListButton/ToListButton";
+import EditButton from "../../components/EditButton/EditButton";
 
 class DetailsPage extends Component {
   componentDidMount() {
@@ -17,10 +18,13 @@ class DetailsPage extends Component {
     const movieID = this.props.match.params.id;
     return (
       <div>
-        <h2>Movie ID: {movieID}</h2>
         <Details />
-        <ToListButton />
-        <EditButton movieID={movieID} />
+        <div className="buttonArea">
+          <div className="leftButton">
+            <EditButton movieID={movieID} />
+          </div>
+          <ToListButton />
+        </div>
       </div>
     );
   }

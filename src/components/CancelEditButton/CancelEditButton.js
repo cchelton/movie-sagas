@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 class CancelEditButton extends Component {
   handleClick = (event, id) => {
@@ -8,13 +9,14 @@ class CancelEditButton extends Component {
   render() {
     const movieID = this.props.movieID;
     return (
-      <button
+      <Button
+        variant="contained"
         onClick={(event) => {
           this.handleClick(event, movieID);
         }}
       >
         Cancel
-      </button>
+      </Button>
     );
   }
 }
