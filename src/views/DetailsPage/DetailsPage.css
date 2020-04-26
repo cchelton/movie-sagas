@@ -1,0 +1,11 @@
+.buttonArea {
+  padding-top: 10px;
+}
+
+.buttonArea > * {
+  display: inline-block;
+}
+
+.leftButton {
+  margin-right: 10px;
+}

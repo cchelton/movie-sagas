@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
-class EditButton extends Component {
+class CancelEditButton extends Component {
   handleClick = (event, id) => {
-    this.props.history.push(`/edit/${id}`);
+    this.props.history.push(`/details/${id}`);
   };
   render() {
     const movieID = this.props.movieID;
@@ -15,10 +15,10 @@ class EditButton extends Component {
           this.handleClick(event, movieID);
         }}
       >
-        Edit
+        Cancel
       </Button>
     );
   }
 }
 
-export default withRouter(EditButton);
+export default withRouter(CancelEditButton);

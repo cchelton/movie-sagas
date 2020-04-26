@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { Paper, Typography } from "@material-ui/core";
 import "./GalleryItem.css";
 
 function GalleryItem(props) {
@@ -13,16 +14,24 @@ function GalleryItem(props) {
   };
 
   return (
-    <div className="GalleryItemContainer">
+    <Paper className="GalleryItemContainer">
       <img
         className="GalleryItemImg"
         onClick={(event) => handleClick(event, id)}
         src={poster}
         alt={title}
       />
-      <h3 className="GalleryItemTitle">{title}</h3>
-      <p className="GalleryItemDescription">{description}</p>
-    </div>
+      <Typography variant="h4" component="h4" className="GalleryItemTitle">
+        {title}
+      </Typography>
+      <Typography
+        variant="body1"
+        component="p"
+        className="GalleryItemDescription"
+      >
+        {description}
+      </Typography>
+    </Paper>
   );
 }
 

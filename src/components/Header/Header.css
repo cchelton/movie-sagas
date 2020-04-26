@@ -1,0 +1,7 @@
+.HeaderContainer {
+  background-color: rgb(104, 56, 136);
+  color: white;
+
+  padding: 15px;
+  box-shadow: 0 2px 10px grey;
+}

@@ -1,6 +1,3 @@
-.GalleryDiv {
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.GalleryContainer {
+  margin-top: 20px;
 }

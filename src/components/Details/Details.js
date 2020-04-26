@@ -1,24 +1,27 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Typography } from "@material-ui/core";
 
 class Details extends Component {
   render() {
-    const genreElements = this.props.store.selected_movie_genres.genres.map(
-      (item, index) => <li key={index}>{item}</li>
-    );
+    const genres = this.props.store.selected_movie_genres.genres.join(", ");
     return (
       <div>
-        <h2>More details about:</h2>
         <div>
-          <h3>Title: {this.props.store.selected_movie_genres.title}</h3>
-          <p>
-            Description: {this.props.store.selected_movie_genres.description}
-          </p>
           <img
             src={this.props.store.selected_movie_genres.poster}
             alt={this.props.store.selected_movie_genres.titles}
           />
-          <ul>{genreElements}</ul>
+
+          <Typography variant="h4" component="h4">
+            {this.props.store.selected_movie_genres.title}
+          </Typography>
+
+          <Typography variant="subheading">Genres: {genres}</Typography>
+
+          <Typography variant="body1" component="p">
+            {this.props.store.selected_movie_genres.description}
+          </Typography>
         </div>
       </div>
     );

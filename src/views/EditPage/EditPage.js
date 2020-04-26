@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Details from "../components/Details/Details";
-import ToListButton from "../components/ToListButton/ToListButton";
+import { Button, TextField } from "@material-ui/core";
+import "./EditPage.css";
+import Details from "../../components/Details/Details";
+import ToListButton from "../../components/ToListButton/ToListButton";
+import CancelEditButton from "../../components/CancelEditButton/CancelEditButton";
 
 class EditPage extends Component {
   state = {
     title: "",
     description: "",
   };
+  id = this.props.match.params.id;
 
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -48,25 +52,41 @@ class EditPage extends Component {
   render() {
     return (
       <div>
-        <h2>Movie ID: {this.props.match.params.id}</h2>
         <Details />
-        <form onSubmit={this.handleSubmit}>
-          <input
+        <div>
+          <TextField
+            label="title"
             type="text"
             value={this.state.title}
             onChange={(event) => {
               this.handleChange(event, "title");
             }}
           />
-          <textarea
+        </div>
+        <div>
+          <TextField
+            className="EditPageDescriptionField"
+            label="description"
+            multiline
             value={this.state.description}
             onChange={(event) => {
               this.handleChange(event, "description");
             }}
           />
-          <button type="submit">submit changes</button>
-        </form>
-        <ToListButton />
+        </div>
+        <div className="buttonArea">
+          <div>
+            <Button variant="contained" onClick={this.handleSubmit}>
+              submit changes
+            </Button>
+          </div>
+          <div className="middleButton">
+            <CancelEditButton className="middleButton" movieID={this.id} />
+          </div>
+          <div>
+            <ToListButton />
+          </div>
+        </div>
       </div>
     );
   }

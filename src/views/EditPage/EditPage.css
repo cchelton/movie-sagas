@@ -1,0 +1,16 @@
+.EditPageDescriptionField {
+  width: 70%;
+}
+
+.buttonArea {
+  padding-top: 10px;
+}
+
+.buttonArea > * {
+  display: inline-block;
+}
+
+.middleButton {
+  margin-right: 10px;
+  margin-left: 10px;
+}

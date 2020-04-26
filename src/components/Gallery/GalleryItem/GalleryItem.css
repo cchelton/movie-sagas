@@ -4,6 +4,7 @@
     "img    title" auto
     "img    desc" 1fr
     "img    desc" 1fr / 185px 1fr;
+  column-gap: 10px;
 }
 
 .GalleryItemImg {
