@@ -16,6 +16,7 @@ import getMovies from "./sagas/getMovies";
 import getGenres from "./sagas/getGenres";
 import getMovieGenres from "./sagas/getMovieGenres";
 import getAllMovieGenres from "./sagas/getAllMovieGenres";
+import editMovie from "./sagas/editMovie";
 
 //  Import reducers
 
