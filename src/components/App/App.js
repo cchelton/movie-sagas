@@ -1,12 +1,21 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import { HashRouter as Router, Route } from "react-router-dom";
+import "./App.css";
+import ListPage from "../../views/ListPage";
+import DetailsPage from "../../views/DetailsPage";
 
 class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
       <div className="App">
-        <p>Empty Page</p>
+        <header>
+          <h1>Movie Sagas</h1>
+        </header>
+        <Router>
+          <Route exact path="/" component={ListPage} />
+          <Route path="/details/:id" component={DetailsPage} />
+        </Router>
       </div>
     );
   }
