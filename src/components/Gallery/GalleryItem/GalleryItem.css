@@ -1,7 +1,7 @@
 .GalleryItemContainer {
   display: grid;
   grid:
-    "img    title" 1fr
+    "img    title" auto
     "img    desc" 1fr
     "img    desc" 1fr / 185px 1fr;
 }
@@ -12,6 +12,7 @@
 
 .GalleryItemTitle {
   grid-area: title;
+  margin-bottom: 0;
 }
 
 .GalleryItemDescription {
