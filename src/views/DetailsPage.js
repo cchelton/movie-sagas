@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Details from "../components/Details/Details";
 import ToListButton from "../components/ToListButton/ToListButton";
+import EditButton from "../components/EditButton/EditButton";
 
 class DetailsPage extends Component {
   componentDidMount() {
@@ -13,12 +14,14 @@ class DetailsPage extends Component {
   }
 
   render() {
-    const selectedMovie = this.props.store.selected_movie_genres[0];
+    const movieID = this.props.match.params.id;
+    const selectedMovie = this.props.store.selected_movie_genres;
     return (
       <div>
-        <h2>Movie ID: {this.props.match.params.id}</h2>
+        <h2>Movie ID: {movieID}</h2>
         <Details selectedMovie={selectedMovie} />
         <ToListButton />
+        <EditButton movieID={movieID} />
       </div>
     );
   }
