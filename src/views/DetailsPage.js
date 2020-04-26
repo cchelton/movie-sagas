@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Details from "../components/Details/Details";
+import ToListButton from "../components/ToListButton/ToListButton";
 
 class DetailsPage extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ class DetailsPage extends Component {
       <div>
         <h2>Movie ID: {this.props.match.params.id}</h2>
         <Details selectedMovie={selectedMovie} />
+        <ToListButton />
       </div>
     );
   }
